@@ -16,6 +16,11 @@ class CalculatorTest {
 		String numbers="";
 		Assertions.assertEquals(0, Calculator.add(numbers));
 	}
-
+	@Test
+	void test_3() {
+		String numbers="\"1\\n2,3";
+		Assertions.assertEquals(6, Calculator.add(numbers));
+	}
+	
 
 }
