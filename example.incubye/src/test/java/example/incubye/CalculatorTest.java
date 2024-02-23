@@ -7,9 +7,15 @@ import org.junit.jupiter.api.Test;
 class CalculatorTest {
 
 	@Test
-	void test() {
+	void test_1() {
 		String numbers="1,2,3,4";
 		Assertions.assertEquals(10, Calculator.add(numbers));
 	}
+	@Test
+	void test_2() {
+		String numbers="";
+		Assertions.assertEquals(0, Calculator.add(numbers));
+	}
+
 
 }
