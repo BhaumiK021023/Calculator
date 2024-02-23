@@ -1,7 +1,6 @@
 package example.incubye;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
@@ -10,23 +9,23 @@ import java.util.stream.Collectors;
 
 public class Calculator {
 	static Pattern pattern = Pattern.compile("-?\\d+");
-	static Predicate<Integer> isNegative = num-> num<0;
+	static Predicate<Long> isNegative = num-> num<0;
 
-	public static int add(String number) throws Exception {
+	public static Long add(String number) throws Exception {
 		if("".equalsIgnoreCase(number.trim())) {
-			return 0;
+			return 0L;
 		}else {
 			Matcher matcher = pattern.matcher(number);
 			
-			List<Integer> digits = new ArrayList<Integer>();
+			List<Long> digits = new ArrayList<Long>();
 			while(matcher.find()) {
 				
-				digits.add(Integer.parseInt(matcher.group()));
+				digits.add(Long.parseLong(matcher.group()));
 			}
 			
-			List<Integer> negativeCount = digits.stream().filter(isNegative).collect(Collectors.toList());
+			List<Long> negativeCount = digits.stream().filter(isNegative).collect(Collectors.toList());
 			if(negativeCount.isEmpty()) {
-				return digits.stream().collect(Collectors.summingInt(Integer::valueOf));
+				return digits.stream().collect(Collectors.summingLong(Long::valueOf));
 				
 			}else {
 				String commaSeparated= negativeCount.stream().map(String::valueOf).collect(Collectors.joining(","));
