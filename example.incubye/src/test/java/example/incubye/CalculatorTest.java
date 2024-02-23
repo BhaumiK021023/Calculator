@@ -32,6 +32,11 @@ class CalculatorTest {
 		Exception exception = Assertions.assertThrows(Exception.class, ()->Calculator.add(numbers));
 		Assertions.assertEquals("negative numbers not allowed -6,-5,-3", exception.getMessage());
 	}
+	@Test
+	void test_6() throws Exception {
+		String numbers="/0,0,0,0,0,1,111,1111";
+		Assertions.assertEquals(1223, Calculator.add(numbers));
+	}
 	
 
 }
