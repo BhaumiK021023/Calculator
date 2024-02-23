@@ -37,6 +37,11 @@ class CalculatorTest {
 		String numbers="/0,0,0,0,0,1,111,1111";
 		Assertions.assertEquals(1223, Calculator.add(numbers));
 	}
+	@Test
+	void test_7() throws Exception {
+		String numbers=null;
+		Assertions.assertEquals(null, Calculator.add(numbers));
+	}
 	
 
 }
