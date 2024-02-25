@@ -12,7 +12,7 @@ public class Calculator {
 	static Pattern pattern = Pattern.compile("-?\\d+");
 	static Predicate<Long> isNegative = num-> num<0;
 
-	public static Long add(String number) throws Exception {
+	public static Long add(String number) throws NegativeNumberException  {
 		if(Objects.nonNull(number)){
 			if("".equalsIgnoreCase(number.trim())) {
 				return 0L;
@@ -32,7 +32,7 @@ public class Calculator {
 				}else {
 					String commaSeparated= negativeCount.stream().map(String::valueOf).collect(Collectors.joining(","));
 					
-					throw new Exception("negative numbers not allowed "+commaSeparated);
+					throw new NegativeNumberException("negative numbers not allowed "+commaSeparated);
 				}
 				
 			}	
